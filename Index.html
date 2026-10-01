@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caffè & Bistrot La Sosta - Menu</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Google: Playfair Display per i titoli, Inter per il testo generale -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Header con nome del locale e stile elegante -->
+    <header class="py-12 px-4 text-center border-b border-stone-200 bg-white shadow-sm">
+        <div class="max-w-2xl mx-auto">
+            <span class="text-xs uppercase tracking-widest text-amber-700 font-semibold mb-2 block">Caffetteria & Cucina</span>
+            <h1 class="text-4xl sm:text-5xl font-bold text-stone-900 mb-3 tracking-tight">La Sosta</h1>
+            <p class="text-stone-500 italic text-sm sm:text-base font-serif">Sapori autentici, ingredienti freschi e Pause di qualità</p>
+        </div>
+    </header>
+
+    <!-- Contenuto Principale Menu -->
+    <main class="max-w-3xl mx-auto px-4 py-12 flex-grow w-full space-y-12">
+
+        <!-- SEZIONE 1: Colazione & Caffetteria -->
+        <!-- Facile da duplicare o modificare in un branch Git -->
+        <section class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-stone-200/80">
+            <div class="flex items-center justify-between border-b border-stone-100 pb-4 mb-6">
+                <h2 class="text-2xl font-semibold text-stone-900">Colazione & Caffetteria</h2>
+                <span class="text-xs font-medium text-stone-400 uppercase tracking-wider">Fino alle 11:30</span>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Piatto 1 -->
+                <div class="flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-medium text-stone-900 text-lg">Espresso Selezione Arabica</h3>
+                        <p class="text-stone-500 text-sm mt-1">Miscele pregiate a tostatura media con note di cacao e nocciola.</p>
+                    </div>
+                    <span class="font-semibold text-stone-900 text-lg">€ 1,50</span>
+                </div>
+
+                <!-- Piatto 2 -->
+                <div class="flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-medium text-stone-900 text-lg">Cappuccino Cremoso</h3>
+                        <p class="text-stone-500 text-sm mt-1">Espresso con latte fresco intero montato a crema (disponibile anche con latte d'avena o soia).</p>
+                    </div>
+                    <span class="font-semibold text-stone-900 text-lg">€ 2,20</span>
+                </div>
+
+                <!-- Piatto 3 -->
+                <div class="flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-medium text-stone-900 text-lg">Cornetto Artigianale</h3>
+                        <p class="text-stone-500 text-sm mt-1">Sfogliato a mano ogni mattina. Vuoto, crema al pistacchio, confettura di albicocca o cioccolato fondente.</p>
+                    </div>
+                    <span class="font-semibold text-stone-900 text-lg">€ 1,80</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE 2: Pranzo & Piatti Veloci -->
+        <section class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-stone-200/80">
+            <div class="flex items-center justify-between border-b border-stone-100 pb-4 mb-6">
+                <h2 class="text-2xl font-semibold text-stone-900">Pranzo & Piatti Veloci</h2>
+                <span class="text-xs font-medium text-stone-400 uppercase tracking-wider">dalle 12:00</span>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Piatto 1 -->
+                <div class="flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-medium text-stone-900 text-lg">Insalata Mediterranea</h3>
+                        <p class="text-stone-500 text-sm mt-1">Misticanza di stagione, pomodorini confit, fior di latte fresco, olive taggiasche e pesto al basilico.</p>
+                    </div>
+                    <span class="font-semibold text-stone-900 text-lg">€ 9,50</span>
+                </div>
+
+                <!-- Piatto 2 -->
+                <div class="flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-medium text-stone-900 text-lg">Panino Gourmet "La Sosta"</h3>
+                        <p class="text-stone-500 text-sm mt-1">Prosciutto crudo di Parma 24 mesi, stracciatella di bufala, rucola e maionese al tartufo su pane focaccia.</p>
+                    </div>
+                    <span class="font-semibold text-stone-900 text-lg">€ 8,00</span>
+                </div>
+
+                <!-- Piatto 3 -->
+                <div class="flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-medium text-stone-900 text-lg">Piadina Integrale Romagnola</h3>
+                        <p class="text-stone-500 text-sm mt-1">Tacchino al forno, fontina DOP, zucchine grigliate e salsa allo yogurt ed erba cipollina.</p>
+                    </div>
+                    <span class="font-semibold text-stone-900 text-lg">€ 7,50</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE 3: Bevande & Drink -->
+        <section class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-stone-200/80">
+            <div class="flex items-center justify-between border-b border-stone-100 pb-4 mb-6">
+                <h2 class="text-2xl font-semibold text-stone-900">Bevande & Aperitivi</h2>
+                <span class="text-xs font-medium text-stone-400 uppercase tracking-wider">Tutto il giorno</span>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Piatto 1 -->
+                <div class="flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-medium text-stone-900 text-lg">Spremuta d'Arancia Fresca</h3>
+                        <p class="text-stone-500 text-sm mt-1">Arance rosse di Sicilia espresse al momento.</p>
+                    </div>
+                    <span class="font-semibold text-stone-900 text-lg">€ 3,50</span>
+                </div>
+
+                <!-- Piatto 2 -->
+                <div class="flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-medium text-stone-900 text-lg">Spritz Classico / Campari</h3>
+                        <p class="text-stone-500 text-sm mt-1">Prosecco DOC, Aperol o Campari, soda e fetta d'arancia fresca. Servito con stuzzichini.</p>
+                    </div>
+                    <span class="font-semibold text-stone-900 text-lg">€ 6,00</span>
+                </div>
+
+                <!-- Piatto 3 -->
+                <div class="flex justify-between items-start gap-4">
+                    <div>
+                        <h3 class="font-medium text-stone-900 text-lg">Birra Artigianale Bionda (33cl)</h3>
+                        <p class="text-stone-500 text-sm mt-1">Birra non filtrata a bassa fermentazione, note floreali e gusto equilibrato.</p>
+                    </div>
+                    <span class="font-semibold text-stone-900 text-lg">€ 5,00</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer con informazioni e orari -->
+    <footer class="bg-stone-900 text-stone-400 py-10 px-4 mt-8 text-sm">
+        <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 text-center md:text-left">
+            <div>
+                <h4 class="text-stone-200 font-semibold mb-2 text-base font-serif">Caffè & Bistrot La Sosta</h4>
+                <p>Via Roma, 42 - Milano</p>
+                <p class="mt-1">Tel: +39 02 1234567 | info@lasostabistrot.it</p>
+            </div>
+            <div class="md:text-right">
+                <h4 class="text-stone-200 font-semibold mb-2 text-base font-serif">Orari di Apertura</h4>
+                <p>Lunedì - Venerdì: 07:00 - 20:00</p>
+                <p class="mt-1">Sabato: 08:00 - 15:00 | Domenica: Chiuso</p>
+            </div>
+        </div>
+        <div class="max-w-3xl mx-auto border-t border-stone-800 mt-8 pt-6 text-center text-xs text-stone-500">
+            © Caffè & Bistrot La Sosta. Tutti i diritti riservati.
+        </div>
+    </footer>
+
+</body>
+</html>
