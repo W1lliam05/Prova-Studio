@@ -3,169 +3,855 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caffè & Bistrot La Sosta - Menu</title>
-    <!-- Tailwind CSS CDN -->
+
+    <title>Caffè & Bistrot La Palla - Menu</title>
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Google: Playfair Display per i titoli, Inter per il testo generale -->
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+          rel="stylesheet">
+
     <style>
+        /* =========================
+           FONT
+        ========================= */
+
         body {
             font-family: 'Inter', sans-serif;
         }
 
-        h1, h2, h3, .font-serif {
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-serif {
             font-family: 'Playfair Display', serif;
+        }
+
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        .modal {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+
+            .modal.active {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+
+
+        /* =========================
+           MODAL CONTENT ANIMATION
+        ========================= */
+
+        .modal-content {
+            transform: scale(0.92) translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+
+        /* =========================
+           BODY WHEN MODAL IS OPEN
+        ========================= */
+
+        body.modal-open {
+            overflow: hidden;
+        }
+
+
+        /* =========================
+           PRODUCT BUTTON
+        ========================= */
+
+        .product-button {
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+            .product-button:hover {
+                transform: translateX(3px);
+            }
+
+
+        /* =========================
+           MODAL IMAGE
+        ========================= */
+
+        #modalImage {
+            display: block;
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 640px) {
+
+            #modalImage {
+                height: 220px;
+            }
+
+            .modal-content {
+                max-height: 90vh;
+                overflow-y: auto;
+            }
         }
     </style>
 </head>
-<body class="bg-stone-50 text-stone-800 antialiased min-h-screen flex flex-col justify-between">
 
-    <!-- Header con nome del locale e stile elegante -->
+
+<body class="bg-stone-50 text-stone-800 antialiased min-h-screen flex flex-col">
+
+
+    <!-- ========================================================= -->
+    <!-- HEADER -->
+    <!-- ========================================================= -->
+
     <header class="py-12 px-4 text-center border-b border-stone-200 bg-white shadow-sm">
+
         <div class="max-w-2xl mx-auto">
-            <span class="text-xs uppercase tracking-widest text-amber-700 font-semibold mb-2 block">Caffetteria & Cucina</span>
-            <h1 class="text-4xl sm:text-5xl font-bold text-stone-900 mb-3 tracking-tight">La Palla</h1>
-            <p class="text-stone-500 italic text-sm sm:text-base font-serif">Sapori autentici, ingredienti freschi e Pause di qualità</p>
+
+            <span class="text-xs uppercase tracking-widest text-amber-700 font-semibold mb-2 block">
+                Caffetteria & Cucina
+            </span>
+
+            <h1 class="text-4xl sm:text-5xl font-bold text-stone-900 mb-3 tracking-tight">
+                La Palla
+            </h1>
+
+            <p class="text-stone-500 italic text-sm sm:text-base font-serif">
+                Sapori autentici, ingredienti freschi e pause di qualità
+            </p>
+
         </div>
+
     </header>
 
-    <!-- Contenuto Principale Menu -->
+
+    <!-- ========================================================= -->
+    <!-- MAIN -->
+    <!-- ========================================================= -->
+
     <main class="max-w-3xl mx-auto px-4 py-12 flex-grow w-full space-y-12">
 
-        <!-- SEZIONE 1: Colazione & Caffetteria -->
-        <!-- Facile da duplicare o modificare in un branch Git -->
+
+        <!-- ===================================================== -->
+        <!-- SEZIONE 1 - COLAZIONE -->
+        <!-- ===================================================== -->
+
         <section class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-stone-200/80">
-            <div class="flex items-center justify-between border-b border-stone-100 pb-4 mb-6">
-                <h2 class="text-2xl font-semibold text-stone-900">Colazione & Caffetteria</h2>
-                <span class="text-xs font-medium text-stone-400 uppercase tracking-wider">Fino alle 11:30</span>
+
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-stone-100 pb-4 mb-6">
+
+                <h2 class="text-2xl font-semibold text-stone-900">
+                    Colazione & Caffetteria
+                </h2>
+
+                <span class="text-xs font-medium text-stone-400 uppercase tracking-wider">
+                    Fino alle 11:30
+                </span>
+
             </div>
+
 
             <div class="space-y-6">
-                <!-- Piatto 1 -->
+
+
+                <!-- ================================================= -->
+                <!-- ESPRESSO -->
+                <!-- ================================================= -->
+
                 <div class="flex justify-between items-start gap-4">
-                    <div>
-                        <h3 class="font-medium text-stone-900 text-lg">Espresso Selezione Arabica</h3>
-                        <p class="text-stone-500 text-sm mt-1">Miscele pregiate a tostatura media con note di cacao e nocciola.</p>
+
+                    <div class="flex-1">
+
+                        <h3 class="font-medium text-stone-900 text-lg">
+                            Espresso Selezione Arabica
+                        </h3>
+
+                        <p class="text-stone-500 text-sm mt-1">
+                            Miscele pregiate a tostatura media con note di cacao e nocciola.
+                        </p>
+
+                        <button type="button"
+                                class="product-button mt-3 text-sm font-medium text-amber-700 hover:text-amber-900"
+                                onclick="openProduct(
+                                'Espresso Selezione Arabica',
+                                'Miscele pregiate a tostatura media con note di cacao e nocciola.',
+                                '€ 1,50',
+                                'https://placehold.co/800x600/e7e5e4/44403c?text=Espresso'
+                            )">
+                            Scopri →
+                        </button>
+
                     </div>
-                    <span class="font-semibold text-stone-900 text-lg">€ 1,50</span>
+
+                    <span class="font-semibold text-stone-900 text-lg whitespace-nowrap">
+                        € 1,50
+                    </span>
+
                 </div>
 
-                <!-- Piatto 2 -->
+
+                <!-- ================================================= -->
+                <!-- CAPPUCCINO -->
+                <!-- ================================================= -->
+
                 <div class="flex justify-between items-start gap-4">
-                    <div>
-                        <h3 class="font-medium text-stone-900 text-lg">Cappuccino Cremoso</h3>
-                        <p class="text-stone-500 text-sm mt-1">Espresso con latte fresco intero montato a crema (disponibile anche con latte d'avena o soia).</p>
+
+                    <div class="flex-1">
+
+                        <h3 class="font-medium text-stone-900 text-lg">
+                            Cappuccino Cremoso
+                        </h3>
+
+                        <p class="text-stone-500 text-sm mt-1">
+                            Espresso con latte fresco intero montato a crema.
+                            Disponibile anche con latte d'avena o soia.
+                        </p>
+
+                        <button type="button"
+                                class="product-button mt-3 text-sm font-medium text-amber-700 hover:text-amber-900"
+                                onclick="openProduct(
+                                'Cappuccino Cremoso',
+                                'Espresso con latte fresco intero montato a crema. Disponibile anche con latte d’avena o soia.',
+                                '€ 2,20',
+                                'https://placehold.co/800x600/e7e5e4/44403c?text=Cappuccino'
+                            )">
+                            Scopri →
+                        </button>
+
                     </div>
-                    <span class="font-semibold text-stone-900 text-lg">€ 2,20</span>
+
+                    <span class="font-semibold text-stone-900 text-lg whitespace-nowrap">
+                        € 2,20
+                    </span>
+
                 </div>
 
-                <!-- Piatto 3 -->
+
+                <!-- ================================================= -->
+                <!-- CORNETTO -->
+                <!-- ================================================= -->
+
                 <div class="flex justify-between items-start gap-4">
-                    <div>
-                        <h3 class="font-medium text-stone-900 text-lg">Cornetto Artigianale</h3>
-                        <p class="text-stone-500 text-sm mt-1">Sfogliato a mano ogni mattina. Vuoto, crema al pistacchio, confettura di albicocca o cioccolato fondente.</p>
+
+                    <div class="flex-1">
+
+                        <h3 class="font-medium text-stone-900 text-lg">
+                            Cornetto Artigianale
+                        </h3>
+
+                        <p class="text-stone-500 text-sm mt-1">
+                            Sfogliato a mano ogni mattina.
+                        </p>
+
+                        <button type="button"
+                                class="product-button mt-3 text-sm font-medium text-amber-700 hover:text-amber-900"
+                                onclick="openProduct(
+                                'Cornetto Artigianale',
+                                'Sfogliato a mano ogni mattina. Disponibile vuoto, con crema al pistacchio, confettura di albicocca o cioccolato fondente.',
+                                '€ 1,80',
+                                'https://placehold.co/800x600/e7e5e4/44403c?text=Cornetto'
+                            )">
+                            Scopri →
+                        </button>
+
                     </div>
-                    <span class="font-semibold text-stone-900 text-lg">€ 1,80</span>
+
+                    <span class="font-semibold text-stone-900 text-lg whitespace-nowrap">
+                        € 1,80
+                    </span>
+
                 </div>
+
             </div>
+
         </section>
 
-        <!-- SEZIONE 2: Pranzo & Piatti Veloci -->
+
+
+        <!-- ========================================================= -->
+        <!-- SEZIONE 2 - PRANZO -->
+        <!-- ========================================================= -->
+
         <section class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-stone-200/80">
-            <div class="flex items-center justify-between border-b border-stone-100 pb-4 mb-6">
-                <h2 class="text-2xl font-semibold text-stone-900">Pranzo & Piatti Veloci</h2>
-                <span class="text-xs font-medium text-stone-400 uppercase tracking-wider">dalle 12:00</span>
+
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-stone-100 pb-4 mb-6">
+
+                <h2 class="text-2xl font-semibold text-stone-900">
+                    Pranzo & Piatti Veloci
+                </h2>
+
+                <span class="text-xs font-medium text-stone-400 uppercase tracking-wider">
+                    Dalle 12:00
+                </span>
+
             </div>
+
 
             <div class="space-y-6">
-                <!-- Piatto 1 -->
+
+
+                <!-- ================================================= -->
+                <!-- INSALATA -->
+                <!-- ================================================= -->
+
                 <div class="flex justify-between items-start gap-4">
-                    <div>
-                        <h3 class="font-medium text-stone-900 text-lg">Insalata Mediterranea</h3>
-                        <p class="text-stone-500 text-sm mt-1">Misticanza di stagione, pomodorini confit, fior di latte fresco, olive taggiasche e pesto al basilico.</p>
+
+                    <div class="flex-1">
+
+                        <h3 class="font-medium text-stone-900 text-lg">
+                            Insalata Mediterranea
+                        </h3>
+
+                        <p class="text-stone-500 text-sm mt-1">
+                            Misticanza di stagione, pomodorini confit,
+                            fior di latte fresco, olive taggiasche e pesto al basilico.
+                        </p>
+
+                        <button type="button"
+                                class="product-button mt-3 text-sm font-medium text-amber-700 hover:text-amber-900"
+                                onclick="openProduct(
+                                'Insalata Mediterranea',
+                                'Misticanza di stagione, pomodorini confit, fior di latte fresco, olive taggiasche e pesto al basilico.',
+                                '€ 9,50',
+                                'https://placehold.co/800x600/e7e5e4/44403c?text=Insalata+Mediterranea'
+                            )">
+                            Scopri →
+                        </button>
+
                     </div>
-                    <span class="font-semibold text-stone-900 text-lg">€ 9,50</span>
+
+                    <span class="font-semibold text-stone-900 text-lg whitespace-nowrap">
+                        € 9,50
+                    </span>
+
                 </div>
 
-                <!-- Piatto 2 -->
+
+                <!-- ================================================= -->
+                <!-- PANINO -->
+                <!-- ================================================= -->
+
                 <div class="flex justify-between items-start gap-4">
-                    <div>
-                        <h3 class="font-medium text-stone-900 text-lg">Panino Gourmet "La Sosta"</h3>
-                        <p class="text-stone-500 text-sm mt-1">Prosciutto crudo di Parma 24 mesi, stracciatella di bufala, rucola e maionese al tartufo su pane focaccia.</p>
+
+                    <div class="flex-1">
+
+                        <h3 class="font-medium text-stone-900 text-lg">
+                            Panino Gourmet "La Sosta"
+                        </h3>
+
+                        <p class="text-stone-500 text-sm mt-1">
+                            Prosciutto crudo di Parma 24 mesi,
+                            stracciatella di bufala, rucola e maionese al tartufo.
+                        </p>
+
+                        <button type="button"
+                                class="product-button mt-3 text-sm font-medium text-amber-700 hover:text-amber-900"
+                                onclick="openProduct(
+                                'Panino Gourmet La Sosta',
+                                'Prosciutto crudo di Parma 24 mesi, stracciatella di bufala, rucola e maionese al tartufo su pane focaccia.',
+                                '€ 8,00',
+                                'https://placehold.co/800x600/e7e5e4/44403c?text=Panino+Gourmet'
+                            )">
+                            Scopri →
+                        </button>
+
                     </div>
-                    <span class="font-semibold text-stone-900 text-lg">€ 8,00</span>
+
+                    <span class="font-semibold text-stone-900 text-lg whitespace-nowrap">
+                        € 8,00
+                    </span>
+
                 </div>
 
-                <!-- Piatto 3 -->
+
+                <!-- ================================================= -->
+                <!-- PIADINA -->
+                <!-- ================================================= -->
+
                 <div class="flex justify-between items-start gap-4">
-                    <div>
-                        <h3 class="font-medium text-stone-900 text-lg">Piadina Integrale Romagnola</h3>
-                        <p class="text-stone-500 text-sm mt-1">Tacchino al forno, fontina DOP, zucchine grigliate e salsa allo yogurt ed erba cipollina.</p>
+
+                    <div class="flex-1">
+
+                        <h3 class="font-medium text-stone-900 text-lg">
+                            Piadina Integrale Romagnola
+                        </h3>
+
+                        <p class="text-stone-500 text-sm mt-1">
+                            Tacchino al forno, fontina DOP,
+                            zucchine grigliate e salsa allo yogurt.
+                        </p>
+
+                        <button type="button"
+                                class="product-button mt-3 text-sm font-medium text-amber-700 hover:text-amber-900"
+                                onclick="openProduct(
+                                'Piadina Integrale Romagnola',
+                                'Tacchino al forno, fontina DOP, zucchine grigliate e salsa allo yogurt ed erba cipollina.',
+                                '€ 7,50',
+                                'https://placehold.co/800x600/e7e5e4/44403c?text=Piadina'
+                            )">
+                            Scopri →
+                        </button>
+
                     </div>
-                    <span class="font-semibold text-stone-900 text-lg">€ 7,50</span>
+
+                    <span class="font-semibold text-stone-900 text-lg whitespace-nowrap">
+                        € 7,50
+                    </span>
+
                 </div>
+
             </div>
+
         </section>
 
-        <!-- SEZIONE 3: Bevande & Drink -->
+
+
+        <!-- ========================================================= -->
+        <!-- SEZIONE 3 - BEVANDE -->
+        <!-- ========================================================= -->
+
         <section class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-stone-200/80">
-            <div class="flex items-center justify-between border-b border-stone-100 pb-4 mb-6">
-                <h2 class="text-2xl font-semibold text-stone-900">Bevande & Aperitivi</h2>
-                <span class="text-xs font-medium text-stone-400 uppercase tracking-wider">Tutto il giorno</span>
+
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-stone-100 pb-4 mb-6">
+
+                <h2 class="text-2xl font-semibold text-stone-900">
+                    Bevande & Aperitivi
+                </h2>
+
+                <span class="text-xs font-medium text-stone-400 uppercase tracking-wider">
+                    Tutto il giorno
+                </span>
+
             </div>
+
 
             <div class="space-y-6">
-                <!-- Piatto 1 -->
+
+
+                <!-- ================================================= -->
+                <!-- SPREMUTA -->
+                <!-- ================================================= -->
+
                 <div class="flex justify-between items-start gap-4">
-                    <div>
-                        <h3 class="font-medium text-stone-900 text-lg">Spremuta d'Arancia Fresca</h3>
-                        <p class="text-stone-500 text-sm mt-1">Arance rosse di Sicilia espresse al momento.</p>
+
+                    <div class="flex-1">
+
+                        <h3 class="font-medium text-stone-900 text-lg">
+                            Spremuta d'Arancia Fresca
+                        </h3>
+
+                        <p class="text-stone-500 text-sm mt-1">
+                            Arance rosse di Sicilia espresse al momento.
+                        </p>
+
+                        <button type="button"
+                                class="product-button mt-3 text-sm font-medium text-amber-700 hover:text-amber-900"
+                                onclick="openProduct(
+                                'Spremuta d’Arancia Fresca',
+                                'Arance rosse di Sicilia spremute al momento per garantire freschezza e gusto.',
+                                '€ 3,50',
+                                'https://placehold.co/800x600/e7e5e4/44403c?text=Spremuta'
+                            )">
+                            Scopri →
+                        </button>
+
                     </div>
-                    <span class="font-semibold text-stone-900 text-lg">€ 3,50</span>
+
+                    <span class="font-semibold text-stone-900 text-lg whitespace-nowrap">
+                        € 3,50
+                    </span>
+
                 </div>
 
-                <!-- Piatto 2 -->
+
+                <!-- ================================================= -->
+                <!-- SPRITZ -->
+                <!-- ================================================= -->
+
                 <div class="flex justify-between items-start gap-4">
-                    <div>
-                        <h3 class="font-medium text-stone-900 text-lg">Spritz Classico / Campari</h3>
-                        <p class="text-stone-500 text-sm mt-1">Prosecco DOC, Aperol o Campari, soda e fetta d'arancia fresca. Servito con stuzzichini.</p>
+
+                    <div class="flex-1">
+
+                        <h3 class="font-medium text-stone-900 text-lg">
+                            Spritz Classico / Campari
+                        </h3>
+
+                        <p class="text-stone-500 text-sm mt-1">
+                            Prosecco DOC, Aperol o Campari,
+                            soda e fetta d'arancia fresca.
+                        </p>
+
+                        <button type="button"
+                                class="product-button mt-3 text-sm font-medium text-amber-700 hover:text-amber-900"
+                                onclick="openProduct(
+                                'Spritz Classico / Campari',
+                                'Prosecco DOC, Aperol o Campari, soda e fetta d’arancia fresca. Servito con stuzzichini.',
+                                '€ 6,00',
+                                'https://placehold.co/800x600/e7e5e4/44403c?text=Spritz'
+                            )">
+                            Scopri →
+                        </button>
+
                     </div>
-                    <span class="font-semibold text-stone-900 text-lg">€ 6,00</span>
+
+                    <span class="font-semibold text-stone-900 text-lg whitespace-nowrap">
+                        € 6,00
+                    </span>
+
                 </div>
 
-                <!-- Piatto 3 -->
+
+                <!-- ================================================= -->
+                <!-- BIRRA -->
+                <!-- ================================================= -->
+
                 <div class="flex justify-between items-start gap-4">
-                    <div>
-                        <h3 class="font-medium text-stone-900 text-lg">Birra Artigianale Bionda (33cl)</h3>
-                        <p class="text-stone-500 text-sm mt-1">Birra non filtrata a bassa fermentazione, note floreali e gusto equilibrato.</p>
+
+                    <div class="flex-1">
+
+                        <h3 class="font-medium text-stone-900 text-lg">
+                            Birra Artigianale Bionda (33cl)
+                        </h3>
+
+                        <p class="text-stone-500 text-sm mt-1">
+                            Birra non filtrata a bassa fermentazione,
+                            note floreali e gusto equilibrato.
+                        </p>
+
+                        <button type="button"
+                                class="product-button mt-3 text-sm font-medium text-amber-700 hover:text-amber-900"
+                                onclick="openProduct(
+                                'Birra Artigianale Bionda',
+                                'Birra non filtrata a bassa fermentazione, con note floreali e gusto equilibrato.',
+                                '€ 5,00',
+                                'https://placehold.co/800x600/e7e5e4/44403c?text=Birra'
+                            )">
+                            Scopri →
+                        </button>
+
                     </div>
-                    <span class="font-semibold text-stone-900 text-lg">€ 5,00</span>
+
+                    <span class="font-semibold text-stone-900 text-lg whitespace-nowrap">
+                        € 5,00
+                    </span>
+
                 </div>
+
             </div>
+
         </section>
 
     </main>
 
-    <!-- Footer con informazioni e orari -->
-    <footer class="bg-stone-900 text-stone-400 py-10 px-4 mt-8 text-sm">
+
+
+    <!-- ========================================================= -->
+    <!-- FOOTER -->
+    <!-- ========================================================= -->
+
+    <footer class="bg-stone-900 text-stone-400 py-10 px-4 mt-8">
+
         <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 text-center md:text-left">
+
             <div>
-                <h4 class="text-stone-200 font-semibold mb-2 text-base font-serif">Caffè & Bistrot La Sosta</h4>
-                <p>Via Roma, 42 - Milano</p>
-                <p class="mt-1">Tel: +39 02 1234567 | info@lasostabistrot.it</p>
+
+                <h4 class="text-stone-200 font-semibold mb-2 text-base font-serif">
+                    Caffè & Bistrot La Palla
+                </h4>
+
+                <p>
+                    Via Roma, 42 - Milano
+                </p>
+
+                <p class="mt-1">
+                    Tel: +39 02 1234567 | info@lapalla.it
+                </p>
+
             </div>
+
+
             <div class="md:text-right">
-                <h4 class="text-stone-200 font-semibold mb-2 text-base font-serif">Orari di Apertura</h4>
-                <p>Lunedì - Venerdì: 07:00 - 20:00</p>
-                <p class="mt-1">Sabato: 08:00 - 15:00 | Domenica: Chiuso</p>
+
+                <h4 class="text-stone-200 font-semibold mb-2 text-base font-serif">
+                    Orari di Apertura
+                </h4>
+
+                <p>
+                    Lunedì - Venerdì: 07:00 - 20:00
+                </p>
+
+                <p class="mt-1">
+                    Sabato: 08:00 - 15:00 | Domenica: Chiuso
+                </p>
+
             </div>
+
         </div>
+
+
         <div class="max-w-3xl mx-auto border-t border-stone-800 mt-8 pt-6 text-center text-xs text-stone-500">
-            © Caffè & Bistrot La Sosta. Tutti i diritti riservati.
+
+            © Caffè & Bistrot La Palla. Tutti i diritti riservati.
+
         </div>
+
     </footer>
+
+
+
+    <!-- ========================================================= -->
+    <!-- MODAL -->
+    <!-- ========================================================= -->
+
+    <div id="productModal"
+         class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="modalTitle"
+         onclick="handleModalBackgroundClick(event)">
+
+        <div class="modal-content bg-white rounded-2xl shadow-2xl overflow-hidden w-full max-w-lg relative"
+             onclick="event.stopPropagation()">
+
+
+            <!-- ================================================= -->
+            <!-- CLOSE BUTTON -->
+            <!-- ================================================= -->
+
+            <button id="closeModalButton"
+                    type="button"
+                    onclick="closeProduct()"
+                    class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/90 text-stone-700 text-2xl shadow hover:bg-stone-100 transition"
+                    aria-label="Chiudi">
+                ×
+            </button>
+
+
+            <!-- ================================================= -->
+            <!-- PRODUCT IMAGE -->
+            <!-- ================================================= -->
+
+            <img id="modalImage"
+                 src=""
+                 alt="">
+
+
+            <!-- ================================================= -->
+            <!-- PRODUCT CONTENT -->
+            <!-- ================================================= -->
+
+            <div class="p-6 sm:p-8">
+
+                <h2 id="modalTitle"
+                    class="text-3xl font-semibold text-stone-900 mb-3">
+                </h2>
+
+
+                <p id="modalDescription"
+                   class="text-stone-500 leading-relaxed">
+                </p>
+
+
+                <div class="flex items-center justify-between gap-4 mt-8 pt-5 border-t border-stone-100">
+
+
+                    <span id="modalPrice"
+                          class="text-2xl font-semibold text-stone-900">
+                    </span>
+
+
+                    <button type="button"
+                            onclick="closeProduct()"
+                            class="px-5 py-2.5 rounded-xl bg-stone-900 text-white text-sm font-medium hover:bg-stone-700 transition">
+                        Chiudi
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ========================================================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================================================= -->
+
+    <script>
+
+                /*
+                 * ==========================================================
+                 * ELEMENTI DEL MODAL
+                 * ==========================================================
+                 */
+
+                var modal = document.getElementById("productModal");
+                var modalImage = document.getElementById("modalImage");
+                var modalTitle = document.getElementById("modalTitle");
+                var modalDescription = document.getElementById("modalDescription");
+                var modalPrice = document.getElementById("modalPrice");
+
+
+                /*
+                 * ==========================================================
+                 * APERTURA PRODOTTO
+                 * ==========================================================
+                 *
+                 * title       = nome del prodotto
+                 * description = descrizione
+                 * price       = prezzo
+                 * image       = URL dell'immagine
+                 */
+
+                function openProduct(title, description, price, image) {
+
+                    /*
+                     * Controlliamo che gli elementi esistano.
+                     */
+
+                    if (!modal) {
+                        return;
+                    }
+
+                    if (!modalImage) {
+                        return;
+                    }
+
+                    if (!modalTitle) {
+                        return;
+                    }
+
+                    if (!modalDescription) {
+                        return;
+                    }
+
+                    if (!modalPrice) {
+                        return;
+                    }
+
+
+                    /*
+                     * Inseriamo i dati nel popup.
+                     */
+
+                    modalTitle.textContent = title;
+
+                    modalDescription.textContent = description;
+
+                    modalPrice.textContent = price;
+
+                    modalImage.src = image;
+
+                    modalImage.alt = title;
+
+
+                    /*
+                     * Mostriamo il popup.
+                     */
+
+                    modal.classList.add("active");
+
+
+                    /*
+                     * Blocchiamo lo scroll della pagina.
+                     */
+
+                    document.body.classList.add("modal-open");
+                }
+
+
+                /*
+                 * ==========================================================
+                 * CHIUSURA PRODOTTO
+                 * ==========================================================
+                 */
+
+                function closeProduct() {
+
+                    /*
+                     * Se il modal non esiste,
+                     * non facciamo nulla.
+                     */
+
+                    if (!modal) {
+                        return;
+                    }
+
+
+                    /*
+                     * Nascondiamo il modal.
+                     */
+
+                    modal.classList.remove("active");
+
+
+                    /*
+                     * Riattiviamo lo scroll.
+                     */
+
+                    document.body.classList.remove("modal-open");
+                }
+
+
+                /*
+                 * ==========================================================
+                 * CLICK SULLO SFONDO
+                 * ==========================================================
+                 */
+
+                function handleModalBackgroundClick(event) {
+
+                    /*
+                     * Se l'elemento cliccato è esattamente
+                     * lo sfondo del modal, chiudiamo.
+                     */
+
+                    if (event.target === modal) {
+                        closeProduct();
+                    }
+                }
+
+
+                /*
+                 * ==========================================================
+                 * TASTO ESC
+                 * ==========================================================
+                 */
+
+                document.addEventListener("keydown", function (event) {
+
+                    if (event.key === "Escape") {
+                        closeProduct();
+                    }
+
+                });
+
+    </script>
 
 </body>
 </html>
